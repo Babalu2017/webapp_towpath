@@ -1,0 +1,31 @@
+@keyframes show-toast{
+    0% {bottom: -100%}
+    20% {bottom: 100px}
+    80% {bottom: 100px}
+    100% {bottom: -100%}
+}
+
+.show-notification{
+    position: fixed;
+    bottom: 100%;
+    right: 35%;
+    animation-name: show-toast;
+    animation-duration: 8s;
+    z-index: 99;
+}
+
+
+@media only screen and (min-width: 964px) {
+    /* find vendor show center in small dev */
+    .find_vendor_big {
+        margin-left: 110px;
+    }
+  }
+
+@media only screen and (max-width: 578px) {
+    /* find vendor show center in small dev */
+    .find_vendor {
+      text-align:center;
+      margin-left: 30px;
+    }
+  }

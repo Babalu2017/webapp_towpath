@@ -10,12 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from ctypes import cast
 from pathlib import Path
 from decouple import config
+import os
+from django import conf
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+GDAL_LIBRARY_PATH = '/usr/local/Cellar/gdal/3.5.2/lib/libgdal.dylib'
+GEOS_LIBRARY_PATH = '/usr/local/Cellar/geos/3.11.0/lib/libgeos_c.dylib'
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'towpath_webapp_main'
+    'towpath_webapp_main',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +104,8 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'accounts.User' # custom tables in our database
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -137,4 +149,16 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR /'media'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
