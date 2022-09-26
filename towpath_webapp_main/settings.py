@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'towpath_webapp_main',
     'accounts',
+    'vendor',
 ]
 
 MIDDLEWARE = [
