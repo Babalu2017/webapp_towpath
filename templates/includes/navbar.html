@@ -5,15 +5,15 @@
 	<div class="wrapper">
 		<!-- Header Start -->
 		<header id="header">
-			<div class="main-header">
+			<div class="main-header" style="background-color: #E65858 !important; height: auto;">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 							<div class="logo">
 								<figure>
 									<a href="{% url 'home' %}" class="light-logo">
-										<img src="{% static 'logo/foodOnlineLogo.png' %}" alt="FoodBakery"
-											style="margin-left:-180px;">
+										<img class="towpath_logo" src="{% static 'logo/towpath_logo_mobile.jpg' %}" alt="FoodBakery"
+											style="margin-left:-70px;">
 									</a>
 								</figure>
 							</div>
@@ -76,12 +76,16 @@
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 							<div class="login-option">
-								<a class="cs-color cs-popup-joinus-btn login-popup" data-target="#sign-in"
-									data-toggle="modal" href="#user-register">Login</a> / <span><a class="cs-color cs-popup-joinus-btn login-popup ml-0" href="{% url 'registerUser' %}">Register</a></span>
+								{% if user.is_authenticated %}
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'myAccount' %}" style="color: #fafafa;">My Account</a>
+								<a class="cs-color cs-popup-joinus-btn login-popup text-danger" href="{% url 'logout' %}" style="color: #fafafa !important;">Logout</a>
+								{% else %}
+								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'login' %}" style="color: #fafafa;">Sign In</a>  <span><a class="cs-color cs-popup-joinus-btn login-popup ml-0" href="{% url 'registerUser' %}" style="color: #fafafa;">/ Sign Up</a></span>
 									<a
-									class="get-start-btn" href="{% url 'registerVendor' %}">
-									Register
+									class="get-start-btn" href="{% url 'registerVendor' %}" style="background-color: #4cce4a !important;">
+									Sign Up
 									Vendor </a>
+								{% endif %}
 							</div>
 						</div>
 					</div>
