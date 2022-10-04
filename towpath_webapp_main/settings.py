@@ -10,10 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+from ctypes import cast
 from pathlib import Path
 from decouple import config
 import os
 from django import conf
+import smtplib
+
 
 
 
@@ -163,3 +166,27 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+
+# Email configuration
+# EMAIL_BACKEND = config('EMAIL_BACKEND')
+# MAILJET_API_KEY = config('MAILJET_API_KEY') 
+# MAILJET_API_SECRET ='bad4a404b249b186b0b2a9c431f8cb4f'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_TIMEOUT = 30
+# DEFAULT_FROM_EMAIL = 'towpath_helper@yahoo.com'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'towpath <mirandafrancesco84@gmail.com>'
+# EMAIL_USE_SSL = True
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
