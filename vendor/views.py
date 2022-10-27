@@ -11,6 +11,11 @@ from accounts.views import check_role_vendor
 
 
 
+def get_vendor(request):
+    vendor = Vendor.objects.get(user=request.user)
+    return vendor
+
+
 @login_required(login_url='login')
 @user_passes_test(check_role_vendor)
 def vprofile(request):
@@ -24,7 +29,7 @@ def vprofile(request):
             profile_form.save()
             vendor_form.save()
             messages.success(request, 'Settings updated.')
-            return redirect('vprofile')
+            return redirect('vendorDashboard')
         else:
             print(profile_form.errors)
             print(vendor_form.errors)

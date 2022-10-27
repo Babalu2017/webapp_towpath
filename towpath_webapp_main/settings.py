@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'towpath_webapp_main',
     'accounts',
     'vendor',
+    'my_shop',
+    
 ]
 
 MIDDLEWARE = [
@@ -80,6 +82,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'accounts.context_processors.get_vendor',
+                'accounts.context_processors.get_google_api',
             ],
         },
     },
@@ -191,3 +194,5 @@ DEFAULT_FROM_EMAIL = 'towpath <mirandafrancesco84@gmail.com>'
 # EMAIL_USE_SSL = True
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+GOOGLE_API_KEY = config('GOOGLE_API_KEY')
