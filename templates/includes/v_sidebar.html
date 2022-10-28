@@ -2,8 +2,8 @@
     <div class="user-nav-list">
         <ul>
             <li class="{% if '/accounts/vendorDashboard/' == request.path or 'accounts/vendor/' == request.path %}active{% endif %}"><a href="{% url 'vendorDashboard' %}"><i class="icon-dashboard3"></i>Dashboard</a></li>
-            <li class="{% if 'profile' in request.path %}active{% endif %}"><a href="{% url 'vprofile' %}"><i class="icon-building"></i>My Shop</a></li>
-            <li class="{% if 'menu-builder' in request.path %}active{% endif %}"><a href="#"><i class="icon-menu5"></i>Items List Builder</a></li>
+            <li class="{% if 'profile' in request.path %}active{% endif %}"><a href="{% url 'vprofile' %}"><i class="icon-building"></i>Account Settings</a></li>
+            <li class="{% if 'myshop-builder' in request.path %}active{% endif %}"><a href="{% url 'myshop_builder' %}"><i class="icon-menu5"></i>My Shop List Builder</a></li>
             <li><a href="#"><i class="icon-money"></i>Earnigs</a></li>
             <li><a href="#"><i class="icon-file-text22"></i>Statement</a></li>
             <li class="{% if '/my_orders/' in request.path %}active{% endif %}"><a href="#"><i class="icon-add_shopping_cart"></i>Orders</a></li>
