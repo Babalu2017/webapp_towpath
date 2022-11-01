@@ -51,10 +51,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'towpath_webapp_main',
     'accounts',
     'vendor',
     'my_shop',
+    'marketplace',
     
 ]
 
