@@ -104,6 +104,8 @@ def add_category(request):
     return render(request, 'vendor/add_category.html', context)
 
 
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
 def edit_category(request, pk=None):
     category = get_object_or_404(Category, pk=pk)
     if request.method == 'POST':
@@ -112,9 +114,7 @@ def edit_category(request, pk=None):
             category_name = form.cleaned_data['category_name']
             category = form.save(commit=False)
             category.vendor = get_vendor(request)
-            
-            category.save() # here the category id will be generated
-            category.slug = slugify(category_name)+'-'+str(category.id) # chicken-15
+            category.slug = slugify(category_name)
             category.save()
             messages.success(request, 'Category updated successfully!')
             return redirect('myshop_builder')
@@ -129,6 +129,8 @@ def edit_category(request, pk=None):
     }
     return render(request, 'vendor/edit_category.html', context)
 
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
 def delete_category(request, pk=None):
     category = get_object_or_404(Category, pk=pk)
     category.delete()
@@ -136,8 +138,8 @@ def delete_category(request, pk=None):
     return redirect('myshop_builder')
 
 
-# @login_required(login_url='login')
-# @user_passes_test(check_role_vendor)
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
 def add_item(request):
     if request.method == 'POST':
         form = ProductItemForm(request.POST, request.FILES)
@@ -158,3 +160,29 @@ def add_item(request):
         'form': form,
     }
     return render(request, 'vendor/add_item.html', context)
+
+
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
+def edit_item(request, pk=None):
+    item = get_object_or_404(ProductItem, pk=pk)
+    if request.method == 'POST':
+        form = ProductItemForm(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            item_title = form.cleaned_data['item_title']
+            item = form.save(commit=False)
+            item.vendor = get_vendor(request)
+            item.slug = slugify(item_title)
+            item.save()
+            messages.success(request, 'Item updated successfully!')
+            return redirect('myshopitems_by_category', item.category.id)
+        else:
+            print(form.errors)
+
+    else:
+        form = ProductItemForm(instance=item)
+    context = {
+        'form': form,
+        'item': item,
+    }
+    return render(request, 'vendor/edit_item.html', context)
