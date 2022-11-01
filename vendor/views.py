@@ -11,7 +11,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from accounts.views import check_role_vendor
 from my_shop.models import Category, ProductItem
-from my_shop.forms import CategoryForm
+from my_shop.forms import CategoryForm, ProductItemForm
 from django.template.defaultfilters import slugify
 
 
@@ -135,3 +135,26 @@ def delete_category(request, pk=None):
     messages.success(request, 'Category has been deleted successfully!')
     return redirect('myshop_builder')
 
+
+# @login_required(login_url='login')
+# @user_passes_test(check_role_vendor)
+def add_item(request):
+    if request.method == 'POST':
+        form = ProductItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            item_title = form.cleaned_data['item_title']
+            item = form.save(commit=False)
+            item.vendor = get_vendor(request)
+            item.slug = slugify(item_title)+'-'+str(item.id) 
+            item.save()
+            messages.success(request, 'Item added successfully!')
+            return redirect('myshopitems_by_category', item.category.id)
+        else:
+            print(form.errors)
+
+    else:
+        form = ProductItemForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'vendor/add_item.html', context)
