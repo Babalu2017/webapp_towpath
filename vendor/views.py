@@ -186,3 +186,12 @@ def edit_item(request, pk=None):
         'item': item,
     }
     return render(request, 'vendor/edit_item.html', context)
+
+
+@login_required(login_url='login')
+@user_passes_test(check_role_vendor)
+def delete_item(request, pk=None):
+    item = get_object_or_404(ProductItem, pk=pk)
+    item.delete()
+    messages.success(request, 'Item has been deleted successfully!')
+    return redirect('myshopitems_by_category', item.category.id)
