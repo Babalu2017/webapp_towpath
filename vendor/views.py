@@ -123,6 +123,7 @@ def edit_category(request, pk=None):
 
     else:
         form = CategoryForm(instance=category)
+        
     context = {
         'form': form,
         'category': category,
@@ -156,6 +157,8 @@ def add_item(request):
 
     else:
         form = ProductItemForm()
+        # modify this form and get only the categories of the current vendor logged
+        form.fields['category'].queryset = Category.objects.filter(vendor=get_vendor(request))
     context = {
         'form': form,
     }
@@ -181,6 +184,8 @@ def edit_item(request, pk=None):
 
     else:
         form = ProductItemForm(instance=item)
+        # modify this form and get only the categories of the current vendor logged
+        form.fields['category'].queryset = Category.objects.filter(vendor=get_vendor(request))
     context = {
         'form': form,
         'item': item,
