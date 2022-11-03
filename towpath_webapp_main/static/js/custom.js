@@ -73,4 +73,29 @@ function onPlaceChanged() {
 }
 
 
+$(document).ready(function(){
+    // add to cart
+    $('.add_to_cart').on('click', function(e){
+        e.preventDefault();
+        
+        item_id = $(this).attr('data-id');
+        url = $(this).attr('data-url');
+        // alert(item_id)
+        console.log(url)
+        data = {
+            item_id: item_id,
+        }
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: data,
+            success: function(response){
+                console.log(response)
 
+            }
+            
+        
+        })
+    })
+
+})
