@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from vendor.models import Vendor
 
 
+
 # def home(request):
 #     return HttpResponse('Hello World!')
 
