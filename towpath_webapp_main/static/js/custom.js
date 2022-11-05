@@ -1,4 +1,6 @@
+// 
 let autocomplete;
+
 
 function initAutoComplete() {
     autocomplete = new google.maps.places.Autocomplete(
@@ -11,6 +13,7 @@ function initAutoComplete() {
     // function to specify what should happen when the prediction is clicked
     autocomplete.addListener('place_changed', onPlaceChanged);
 }
+
 
 function onPlaceChanged() {
     var place = autocomplete.getPlace();

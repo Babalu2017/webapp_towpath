@@ -22,11 +22,11 @@
 				</div>
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
 					<div class="main-search fancy bg-holder" style="background-color: #E65858 !important;">
-						<form action="#" method="GET">
+						<form action="{% url 'search' %}" method="GET">
 							<div class="row">
 								<div class="col-lg-4 col-md-4 col-sm-3 col-xs-12">
 									<div class="field-holder">
-										<input type="text" name="keyword" placeholder="Start to type what you need">
+										<input type="text" name="shop_name" placeholder="Start typing...">
 									</div>
 								</div>
 								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
@@ -38,7 +38,7 @@
 															class="icon-location"></i></span>
 
 													<input type="text" name="address" class="location-field-text filter"
-														id="id_address" required placeholder="All Locations">
+														id="id_address2" required placeholder="All Locations">
 													<input type="hidden" name="lat" value="" id="id_latitude">
 													<input type="hidden" name="lng" value="" id="id_longitude">
 												</div>
