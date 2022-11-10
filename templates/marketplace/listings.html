@@ -45,6 +45,10 @@
                                             {% if vendor.user_profile.address %}
                                             <span><small class="text-muted">{{ vendor.user_profile.address }} , {{ vendor.user_profile.pin_code }}</small></span>
                                             {% endif %}
+                                            {% if source_locations %}
+                                            <br>
+                                            <span><small><b>{{ vendor.kms }}km</b> away from {{source_locations}}</small></span>
+                                            {% endif %}
                                         </div>
                                         <div class="list-option">
 

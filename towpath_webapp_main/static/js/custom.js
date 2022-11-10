@@ -8,6 +8,7 @@ function initAutoComplete() {
             //default in this app is "IN" - add your country code
             componentRestrictions: { 'country': ['uk'] },
         })
+
     // function to specify what should happen when the prediction is clicked
     autocomplete.addListener('place_changed', onPlaceChanged);
 }
@@ -235,8 +236,8 @@ $(document).ready(function () {
 
 
     // apply cart amounts
-    function applyCartAmounts(subtotal, tax, grand_total){
-        if(window.location.pathname == '/cart/'){
+    function applyCartAmounts(subtotal, tax, grand_total) {
+        if (window.location.pathname == '/cart/') {
             $('#subtotal').html(subtotal)
             $('#tax').html(tax)
             $('#total').html(grand_total)

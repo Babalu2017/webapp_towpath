@@ -24,8 +24,8 @@ import smtplib
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-GDAL_LIBRARY_PATH = '/usr/local/Cellar/gdal/3.5.2/lib/libgdal.dylib'
-GEOS_LIBRARY_PATH = '/usr/local/Cellar/geos/3.11.0/lib/libgeos_c.dylib'
+# GDAL_LIBRARY_PATH = '/usr/local/Cellar/gdal/3.5.2/lib/libgdal.dylib'
+# GEOS_LIBRARY_PATH = '/usr/local/Cellar/geos/3.11.0/lib/libgeos_c.dylib'
 
 
 
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'vendor',
     'my_shop',
     'marketplace',
+    'django.contrib.gis',
     
 ]
 
@@ -95,19 +96,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'towpath_webapp_main.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': config('DB_NAME'),
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
@@ -118,8 +110,7 @@ DATABASES = {
 
 AUTH_USER_MODEL = 'accounts.User' # custom tables in our database
 
-# Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -137,9 +128,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -149,24 +137,18 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR /'static'
 STATICFILES_DIRS = [
     'towpath_webapp_main/static'
 ]
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 # Media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -176,27 +158,11 @@ MESSAGE_TAGS = {
 }
 
 
-# Email configuration
-# EMAIL_BACKEND = config('EMAIL_BACKEND')
-# MAILJET_API_KEY = config('MAILJET_API_KEY') 
-# MAILJET_API_SECRET ='bad4a404b249b186b0b2a9c431f8cb4f'
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-# EMAIL_TIMEOUT = 30
-# DEFAULT_FROM_EMAIL = 'towpath_helper@yahoo.com'
-
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
-
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'towpath <mirandafrancesco84@gmail.com>'
-# EMAIL_USE_SSL = True
-
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 GOOGLE_API_KEY = config('GOOGLE_API_KEY')

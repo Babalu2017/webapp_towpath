@@ -1,6 +1,11 @@
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, get_object_or_404
-from django.db.models import Prefetch
+from django.shortcuts import render, get_object_or_404,redirect
+from django.db.models import Prefetch, Q
+
+from django.contrib.gis.geos import GEOSGeometry
+from django.contrib.gis.measure import D # ``D`` is a shortcut for ``Distance``
+from django.contrib.gis.db.models.functions import Distance
+
 
 from vendor.models import Vendor
 from my_shop.models import Category, ProductItem
@@ -128,4 +133,35 @@ def delete_cart(request, cart_id):
 
 
 def search(request):
-    return HttpResponse('Search page')
+    if not 'address' in request.GET:
+        return redirect('marketplace')
+    else:
+        address = request.GET['address']
+        latitude = request.GET['lat']
+        longitude = request.GET['lng']
+        radius = request.GET['radius']
+        keyword = request.GET['keyword']
+        # get vendor ids that has the items the user looking for
+        fetch_vendors_by_items = ProductItem.objects.filter(item_title__icontains=keyword, is_available=True).values_list('vendor', flat=True)
+        # print(fetch_vendors_by_items)
+        # Q is for complex query
+        vendors = Vendor.objects.filter(Q(id__in=fetch_vendors_by_items) | Q(vendor_name__icontains=keyword, is_approved=True, user__is_active=True))
+
+        # find vendor and item by location
+        if latitude and longitude and radius:
+                pnt = GEOSGeometry('POINT(%s %s)' % (longitude, latitude))
+                vendors = Vendor.objects.filter(Q(id__in=fetch_vendors_by_items) | Q(vendor_name__icontains=keyword, is_approved=True, user__is_active=True),
+                user_profile__location__distance_lte=(pnt, D(km=radius))
+                ).annotate(distance=Distance("user_profile__location", pnt)).order_by("distance")
+
+                for v in vendors:
+                    v.kms = round(v.distance.km, 1)
+
+        # vendors = Vendor.objects.filter(vendor_name__icontains=keyword, is_approved=True, user__is_active=True)
+        vendor_count = vendors.count()
+        context = {
+            'vendors': vendors,
+            'vendor_count': vendor_count,
+            'source_locations': address,
+        }
+        return render(request, 'marketplace/listings.html', context)

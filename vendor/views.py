@@ -89,8 +89,8 @@ def add_category(request):
             category.vendor = get_vendor(request)
             
             category.save() # here the category id will be generated
-            category.slug = slugify(category_name)+'-'+str(category.id) # chicken-15
-            category.save()
+            category.slug = slugify(category_name)+'-'+str(category.id)
+            category.save() # here the category will be saved with id in the slug
             messages.success(request, 'Category added successfully!')
             return redirect('myshop_builder')
         else:
@@ -148,8 +148,9 @@ def add_item(request):
             item_title = form.cleaned_data['item_title']
             item = form.save(commit=False)
             item.vendor = get_vendor(request)
+            item.save() # here the item id will be generated
             item.slug = slugify(item_title)+'-'+str(item.id) 
-            item.save()
+            item.save() # here the item will be saved with id in the slug
             messages.success(request, 'Item added successfully!')
             return redirect('myshopitems_by_category', item.category.id)
         else:
