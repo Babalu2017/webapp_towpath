@@ -1,63 +1,65 @@
 {% load static %}
 
-<body>
-	<!--Main Wrapper-->
-	<div class="wrapper">
-		<!-- Header Start -->
-		<header id="header">
-			<div class="main-header" style="background-color: #E65858 !important; height: auto;">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-							<div class="logo">
-								<figure>
-									<a href="{% url 'home' %}" class="light-logo">
-										<img class="towpath_logo" src="{% static 'logo/towpath_logo_mobile.jpg' %}" alt="FoodBakery"
-											style="margin-left:-70px;">
-									</a>
-								</figure>
-							</div>
-
-							<div class="main-location find_vendor find_vendor_big">
-								<ul>
-									<li class="location-has-children choose-location">
-										<form action="#">
-											<input type="text" value="" name="location" id="location"
-												placeholder="Your current location" autocomplete="off">
-											<span id="foodbakery_radius_location_open"
-												class="foodbakery-radius-location" onclick="getLocation()"><i class="icon-target5"></i></span>
-										</form>
-
-									</li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-							<div class="login-option">
-								{% if user.is_authenticated %}
-								<a href="{% url 'cart' %}">
-									<i class="fa fa-shopping-cart text-light" style="font-size: 19px;"></i>
-									<span class="badge badge-light" id="cart_counter" style="border-radius: 50px; position: relative; bottom: 10px; left: -5px;">{{ cart_count }}</span>
-								</a>
-								{% endif %}
-								<a href="{% url 'marketplace' %}" class="btn btn-outline-light text-uppercase font-weight-bold">Marketplace</a>
-								{% if user.is_authenticated %}
-								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'myAccount' %}" style="color: #fafafa;">My Account</a>
-								<a class="cs-color cs-popup-joinus-btn login-popup text-danger" href="{% url 'logout' %}" style="color: #fafafa !important;">Logout</a>
-								{% else %}
-								<a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'login' %}" style="color: #fafafa;">Sign In</a>  <span><a class="cs-color cs-popup-joinus-btn login-popup ml-0" href="{% url 'registerUser' %}" style="color: #fafafa;">/ Sign Up</a></span>
-									<a
-									class="get-start-btn" href="{% url 'registerVendor' %}" style="background-color: #4cce4a !important;">
-									Sign Up
-									Vendor </a>
-								{% endif %}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- Header End -->
+<!--Main Wrapper-->
+<div class="wrapper">
+    <!-- Header Start -->
+    <header id="header">
+        <div class="main-header" style="background-color: black !important;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <div class="logo">
+                            <figure>
+                                <a href="{% url 'home' %}" class="light-logo">
+									<!-- <h3>Towpath</h3> -->
+                                    <img src="{% static 'logo/towpath_back_logo_nobackground.png' %}" alt="Towpath" width="250" >
+                                </a>
+                            </figure>
+                        </div>
+                        
+                        
+                        <div class="main-location ml-5">
+                            <ul>
+                                <li class="location-has-children choose-location">
+                                    <form action="#">
+                                        <input type="text" value="" name="location" id="location" placeholder="Your current location" autocomplete="off">
+                                        <span id="foodbakery_radius_location_open" class="foodbakery-radius-location" onclick="getLocation()"><i class="icon-target5"></i></span>
+                                    </form>
+                                    
+                                </li>
+                            </ul>
+                            </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                        <div class="login-option">
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'cart' %}">
+                                <i class="fa fa-shopping-cart text-danger" style="font-size: 20px;"></i>
+                                <span class="badge badge-warning" id="cart_counter" style="border-radius: 50px; position: relative; bottom:10px; left: -5px;">{{ cart_count }}</span>
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'marketplace' %}" class="btn btn-outline-danger text-uppercase font-weight-bold">Marketplace</a>
+                            {% if user.is_authenticated %}
+                            <a class="cs-color cs-popup-joinus-btn login-popup" href="{% url 'myAccount' %}" style="color: #fafafa !important;">My Account</a>
+                            <a class="cs-color cs-popup-joinus-btn login-popup text-danger" href="{% url 'logout' %}" style="color: #fafafa !important;">Logout</a>
+                            {% else %}
+                            <a class="cs-color cs-popup-joinus-btn login-popup mr-2" href="{% url 'login' %}" style="color: #fafafa;">Login</a> 
+							
+							<!-- <span class="d-none" style="color: #fafafa !important;">/</span>  -->
+							<span class="mr-2"><a href="{% url 'registerUser' %}" class="cs-color cs-popup-joinus-btn login-popup ml-0" style="color: #fafafa !important;">Logout</a>
+							</span>
+							
+							<a class="btn btn-outline-danger text-uppercase font-weight-bold" href="{% url 'registerVendor' %}">
+                                Signin Vendor</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+	
 
 		<script>
 			var x = document.getElementById("location");

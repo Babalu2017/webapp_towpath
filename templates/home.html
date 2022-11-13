@@ -93,10 +93,10 @@
 							<li class="has-border">
 								<figure>
 									{% if vendor.user_profile.profile_picture %}
-									<a href="{% url 'vendor_detail' vendor.vendor_slug %}"><img src="{{ vendor.user_profile.profile_picture.url }}"
+									<a href="{% url 'vendor_detail' vendor.vendor_slug %}"><img src="{{ vendor.user_profile.profile_picture.url }}" height="125" width="125"
 											class="attachment-full size-full wp-post-image" alt="profile picture"></a>
 									{% else %}
-									<a href="{% url 'vendor_detail' vendor.vendor_slug %}"><img src="/static/images/default_user_img.png"
+									<a href="{% url 'vendor_detail' vendor.vendor_slug %}"><img src="/static/images/default_user_img.png" height="125" width="125"
 											class="attachment-full size-full wp-post-image"
 											alt="profile picture default"></a>
 									{% endif %}
