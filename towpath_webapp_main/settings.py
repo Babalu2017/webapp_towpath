@@ -39,7 +39,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['139.162.236.88','127.0.0.1', 'towpathwebapp.boats', 'www.towpathwebapp.boats.com']
+ALLOWED_HOSTS = ['139.162.236.88','127.0.0.1', 'towpathwebapp.boats', 'www.towpathwebapp.boats']
 
 
 # Application definition
