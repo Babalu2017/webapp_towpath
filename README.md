@@ -6,7 +6,7 @@
 
 Towpath Webapp is an application using Django/SQL for London canal boating communities to assist with daily boat living and upkeep. Based on my own experience living on a boat in London, I realised there is a great need for a product such as this.  Living on a boat requires knowing about services such as fuel points, repair services, and water access.  Currently, this information is scattered online in boating community Q&A sections or forums.  To access information ranging from general boating news to enquiries regarding plumbing, electrical and mechanical issues, one must go through a Facebook group, research on Google or read up on official channels like Canal & River Trust to find day-to-day services.  This includes whether particular water or toileting points are currently functioning.
 
-<h2 align="center"><img src="#"></h2>
+<h2 align="center"><img src="towpath_webapp_main/static/towpathwebapp_screenshots_devices/amiresponsive.jpg"></h2>
 
 ### DATABASE
 
@@ -151,7 +151,7 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 
 1.   The Website was tested on different browsers such as: Chrome, Edge, Safari 
     
-2.   The website was viewed on a variety of devices such as: Laptop, iPhoneXR, iPhone12, Samsung_Galaxy_Fold, iPad_Air, Samsung_Galaxy_a51/71
+2.   The website was viewed on a variety of devices such as:
     [ipad_air_orizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air_horizontial.png) [aipad_air](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air.png) [aipad_mini_horizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini_horizontial.png) [ipad_mini](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini.png) [iphone_12](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_12_pro.png) [iphone_se](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_se.png) [iphone_xr](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_xr.png) [surface_pro](towpath_webapp_main/static/towpathwebapp_screenshots_devices/surface_pro_7_horizontial.png)
 
 3.   A large amount of testing was done to ensure that all pages were linking correctly [view](#).
