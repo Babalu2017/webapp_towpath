@@ -128,28 +128,18 @@ As the application is aimed at all ages, logical placement of buttons and unders
 
 ## Testing
 
-The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. Although W3C wont allow django dynamic injection and throw errors {% include xxx %}
 
-1.  HTML Sign_up in validator [view](#)
-2.  HTML dashboard validator [view](#)
-3.  HTML edit_item validator [view](#)
-4.  HTML home validator [view](#)
-5.  HTML inbox validator [view](#)
-6.  HTML new_message validator [view](#)
-7.  CSS  Style_Sheet validator [view](#)
-8.  JS  Script.js [view](#)
-## Lighthouse Testing
-1. dashboard [view](#)
-2. home [view](#)
-3. marketplace [view](#)
-4. login [view](#)
-5. signup [view](#)
+1.  HTML login in validator [view](towpath_webapp_main/static/validators/login.png)
+2.  HTML register user validator [view](towpath_webapp_main/static/validators/register_user.png)
+3.  HTML register_vendor validator [view](towpath_webapp_main/static/validators/register_vendor.png)
+4.  HTML home validator [view](towpath_webapp_main/static/validators/home.png)
 
 
 
 ###  Testing
 
-1.   The Website was tested on different browsers such as: Chrome, Edge, Safari 
+1.   The Website was tested on different browsers such as: [Chrome](towpath_webapp_main/static/broweser_testing/chrome.png), [Edge](towpath_webapp_main/static/broweser_testing/edge.png), [Safari](towpath_webapp_main/static/broweser_testing/safari.png)
     
 2.   The website was viewed on a variety of devices such as:
     [ipad_air_orizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air_horizontial.png) [aipad_air](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air.png) [aipad_mini_horizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini_horizontial.png) [ipad_mini](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini.png) [iphone_12](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_12_pro.png) [iphone_se](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_se.png) [iphone_xr](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_xr.png) [surface_pro](towpath_webapp_main/static/towpathwebapp_screenshots_devices/surface_pro_7_horizontial.png)
