@@ -16,6 +16,7 @@ from decouple import config
 import os
 from django import conf
 import smtplib
+import mimetypes
 
 
 
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # GDAL_LIBRARY_PATH = '/usr/local/Cellar/gdal/3.5.2/lib/libgdal.dylib'
 # GEOS_LIBRARY_PATH = '/usr/local/Cellar/geos/3.11.0/lib/libgeos_c.dylib'
 
-
+mimetypes.add_type("text/css", ".css", True)
 
 
 # Quick-start development settings - unsuitable for production
@@ -143,6 +144,8 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
+USE_L10N = True
+
 USE_TZ = True
 
 
@@ -178,4 +181,5 @@ GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 
 PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
 
-SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+# SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+SECURE_CROSS_ORIGIN_OPENER_POLICY = None
