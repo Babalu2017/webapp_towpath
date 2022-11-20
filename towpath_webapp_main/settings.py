@@ -40,6 +40,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['139.162.236.88','127.0.0.1', 'towpathwebapp.boats', 'www.towpathwebapp.boats']
+CSRF_TRUSTED_ORIGINS = ['139.162.236.88','127.0.0.1', 'https://towpathwebapp.boats/', 'https://www.towpathwebapp.boats']
 
 
 # Application definition

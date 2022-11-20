@@ -128,12 +128,12 @@ As the application is aimed at all ages, logical placement of buttons and unders
 
 ## Testing
 
-The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project. Although W3C wont allow django dynamic injection and throw errors {% include xxx %}
+The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-1.  HTML login in validator [view](towpath_webapp_main/static/validators/login.png)
-2.  HTML register user validator [view](towpath_webapp_main/static/validators/register_user.png)
-3.  HTML register_vendor validator [view](towpath_webapp_main/static/validators/register_vendor.png)
-4.  HTML home validator [view](towpath_webapp_main/static/validators/home.png)
+1.  HTML login in validator [view](#)
+2.  HTML register user validator [view](#)
+3.  HTML register_vendor validator [view](#)
+4.  HTML home validator [view](#)
 
 
 
