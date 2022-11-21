@@ -58,7 +58,7 @@ def registerUser(request):
             # Send verification email
             mail_subject = 'Please activate your account.'
             email_template = 'accounts/emails/account_verification_email.html'
-            send_verification_email(request, user, mail_subject, email_template)
+            # send_verification_email(request, user, mail_subject, email_template)
 
             # print('User has been created!')
             messages.success(request, 'Your account has been registered successfully! Please wait for the approval.')
@@ -105,7 +105,7 @@ def registerVendor(request):
             # Send verification email
             mail_subject = 'Please activate your account.'
             email_template = 'accounts/emails/account_verification_email.html'
-            send_verification_email(request, user, mail_subject, email_template)
+            # send_verification_email(request, user, mail_subject, email_template)
 
             messages.success(request, 'Your account has been registered sucessfully! Please wait for the approval.')
             return redirect('registerVendor')
@@ -193,7 +193,7 @@ def forgot_password(request):
             # send reset password email
             mail_subject = 'Reset Your Password'
             email_template = 'accounts/emails/reset_password_email.html'
-            send_verification_email(request, user, mail_subject, email_template)
+            # send_verification_email(request, user, mail_subject, email_template)
 
             messages.success(request, 'Password reset link has been sent to your email address.')
             return redirect('login')
