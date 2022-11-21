@@ -4,7 +4,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, message
 from django.core import mail
 from django.conf import settings
 
@@ -32,6 +32,7 @@ def send_verification_email(request, user, mail_subject, email_template):
     })
     to_email = user.email
     mail_one = EmailMessage(mail_subject, message, from_email, to=[to_email])
+    mail_one.content_subtype = "html"
     mail_one.send()
     # We need to manually close the connection.
 
