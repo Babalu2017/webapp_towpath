@@ -124,7 +124,7 @@ def payments(request):
             # 'customer_subtotal': customer_subtotal,
             # 'tax_data': tax_data,
         }
-        # send_notification(mail_subject, mail_template, context)
+        send_notification(mail_subject, mail_template, context)
 
         # SEND ORDER RECEIVED EMAIL TO THE VENDOR
         mail_subject = 'You have received a new order.'
@@ -146,7 +146,7 @@ def payments(request):
                     # 'tax_data': order_total_by_vendor(order, i.fooditem.vendor.id)['tax_dict'],
                     # 'vendor_grand_total': order_total_by_vendor(order, i.productitem.vendor.id)['grand_total'],
                 }
-                # send_notification(mail_subject, mail_template, context)
+                send_notification(mail_subject, mail_template, context)
 
         # CLEAR THE CART IF THE PAYMENT IS SUCCESS
         # cart_items.delete()
