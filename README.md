@@ -12,7 +12,7 @@ Towpath Webapp is an application using Django/SQL for London canal boating commu
 
 1. PostgreSql
 
-- Lucid which was used to create the database models diagram. [view](marketplace/static/img/lighthouse_testing/towpath_flowchart.jpeg)
+- Lucid which was used to create the database models diagram. [view](#)
 
 -   ### Design
     -   #### Colour Scheme
@@ -57,18 +57,18 @@ As the application is aimed at all ages, logical placement of buttons and unders
 
 ## First time user
 
-- As a first-time user, I want to understand what the applications purpose is so that I can decide if it meets my needs. [view](#)
-- As a first-time user, I want to be able to easily navigate to the registration page.
+- As a first-time user, I want to understand what the applications purpose is so that I can decide if it meets my needs. [view](towpath_webapp_main/static/readme_images/purpose.png)
+- As a first-time user, I want to be able to easily navigate to the registration page. [view](towpath_webapp_main/static/readme_images/registration_page.png)
 - As a first-time user, I want to find out how to add an item to the dashboard.
 - As a first-time user, I want to view my items.
 - As a first-time user, I want to find out more information about an item I have added.
 - As a first-time user, I want to find out how to remove an item in case I make a mistake.
-- As a first-time user, I want to know how to log out of Towpath.
+- As a first-time user, I want to know how to log out of Towpath. [view](towpath_webapp_main/static/readme_images/logout_btn.png)
 
 ## Returning user/vendor
 - As a returning user, I want to be able to easily navigate to the login page.
-- As a returning user, I want to be able to edit an item in my shop.
-- As a returning user, I want to be able to see how many items are in my shop. [view](#)
+- As a returning user, I want to be able to edit an item in my shop. [btn](towpath_webapp_main/static/readme_images/edit_btn_item.png) [form](towpath_webapp_main/static/readme_images/edit_item_form.png)
+- As a returning user, I want to be able to see how many items are in my shop. [view](towpath_webapp_main/static/readme_images/my_shop.png)
 
 ## Site owner
 - As the site owner, I want visitors to find Towpath approachable and know its purpose from the outset.
