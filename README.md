@@ -12,7 +12,7 @@ Towpath Webapp is an application using Django/SQL for London canal boating commu
 
 1. PostgreSql
 
-- Lucid which was used to create the database models diagram. [view](#)
+- Lucid which was used to create the database models diagram. [view](towpath_webapp_main/static/readme_images/database_flowchart.png)
 
 -   ### Design
     -   #### Colour Scheme
