@@ -38,12 +38,6 @@ def registerUser(request):
         # print(request.POST)
         form = UserForm(request.POST)
         if form.is_valid():
-            # Create the user using form
-            # password = form.cleaned_data['password']
-            # user = form.save(commit=False)
-            # user.set_password(password)
-            # user.role = User.CUSTOMER
-            # user.save()
 
             # Create the user using create_user method
             first_name = form.cleaned_data['first_name']
@@ -60,10 +54,7 @@ def registerUser(request):
             email_template = 'accounts/emails/account_verification_email.html'
             send_verification_email(request, user, mail_subject, email_template)
 
-            # print('User has been created!')
             messages.success(request, 'Your account has been registered successfully! Please wait for the approval.')
-            # how to change dinamically the color at the pop up msg 
-            # messages.warning(request, 'Your account has been registered successfully!')
             return redirect('registerUser')
         else:
             print('Invalid form!')

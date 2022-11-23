@@ -55,7 +55,6 @@ def place_order(request):
             order.payment_method = request.POST['payment_method']
             order.save() # order id/ pk is generated
             order.order_number = generate_order_number(order.id)
-            # order.vendors.add(*vendors_ids)
             order.save()
 
             context = {
@@ -119,10 +118,7 @@ def payments(request):
             'user': request.user,
             'order': order,
             'to_email': order.email,
-            # 'ordered_item': ordered_item,
-            # 'domain': get_current_site(request),
-            # 'customer_subtotal': customer_subtotal,
-            # 'tax_data': tax_data,
+        
         }
         send_notification(mail_subject, mail_template, context)
 
@@ -141,15 +137,12 @@ def payments(request):
                 context = {
                     'order': order,
                     'to_email': i.productitem.vendor.user.email,
-                    # 'ordered_food_to_vendor': ordered_food_to_vendor,
-                    # 'vendor_subtotal': order_total_by_vendor(order, i.productitem.vendor.id)['subtotal'],
-                    # 'tax_data': order_total_by_vendor(order, i.fooditem.vendor.id)['tax_dict'],
-                    # 'vendor_grand_total': order_total_by_vendor(order, i.productitem.vendor.id)['grand_total'],
+                    
                 }
                 send_notification(mail_subject, mail_template, context)
 
         # CLEAR THE CART IF THE PAYMENT IS SUCCESS
-        # cart_items.delete()
+        cart_items.delete()
         
         # RETURN BACK TO AJAX WITH THE STATUS SUCCESS OR FAILURE
         response = {
@@ -172,13 +165,11 @@ def order_complete(request):
         for item in ordered_item:
             subtotal += (item.price * item.quantity)
 
-        # tax_data = simplejson.loads(order.tax_data)
-        # print(tax_data)
+       
         context = {
             'order': order,
             'ordered_item': ordered_item,
             'subtotal': subtotal,
-            # 'tax_data': tax_data,
         }
         return render(request, 'orders/order_complete.html', context)
     except:

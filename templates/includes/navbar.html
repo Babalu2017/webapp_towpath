@@ -11,7 +11,6 @@
                         <div class="logo">
                             <figure>
                                 <a href="{% url 'home' %}" class="light-logo">
-									<!-- <h3>Towpath</h3> -->
                                     <img src="{% static 'logo/towpath_back_logo_nobackground.png' %}" alt="Towpath" width="250" >
                                 </a>
                             </figure>
@@ -45,7 +44,6 @@
                             {% else %}
                             <a class="cs-color cs-popup-joinus-btn login-popup mr-2" href="{% url 'login' %}" style="color: #fafafa;">Login</a> 
 							
-							<!-- <span class="d-none" style="color: #fafafa !important;">/</span>  -->
 							<span class="mr-2"><a href="{% url 'registerUser' %}" class="cs-color cs-popup-joinus-btn login-popup ml-0" style="color: #fafafa !important;">Sign Up</a>
 							</span>
 							
@@ -69,8 +67,7 @@
 			}
 			
 			function getLocation() {
-				// alert('test')
-				// return false
+				
 				if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(showPosition);
 				} else { 

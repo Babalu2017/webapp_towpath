@@ -9,8 +9,7 @@ from django.contrib.gis.measure import D # ``D`` is a shortcut for ``Distance``
 from django.contrib.gis.db.models.functions import Distance
 
 
-# def home(request):
-#     return HttpResponse('Hello World!')
+
 
 def get_or_set_current_location(request):
     if 'lat' in request.session:

@@ -26,7 +26,7 @@ def get_cart_amounts(request):
         cart_items = Cart.objects.filter(user=request.user)
         for item in cart_items:
             productitem = ProductItem.objects.get(pk=item.productitem.id)
-            subtotal += (productitem.price * item.quantity) # subtotal = subtotal + (productitem.price * item.quantity)
+            subtotal += (productitem.price * item.quantity) 
 
         get_tax = Tax.objects.filter(is_active=True)
         for i in get_tax:
@@ -38,4 +38,3 @@ def get_cart_amounts(request):
         tax = sum(x for key in tax_dict.values() for x in key.values())
         grand_total = subtotal + tax
     return dict(subtotal=subtotal, tax=tax, grand_total=grand_total, tax_dict=tax_dict)
-    # return dict(subtotal=subtotal, tax=tax, grand_total=grand_total)
