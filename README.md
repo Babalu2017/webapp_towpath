@@ -77,7 +77,7 @@ As the application is aimed at all ages, logical placement of buttons and unders
 
 ### Flowchart
 
-   -   Flowchart - [view](towpath_webapp_main/static/readme_images/flowchart_towpath_webapp.HEIC) 
+   -   Flowchart - [view](towpath_webapp_main/static/readme_images/towpathwebapp_flowchart.jpg) 
 
 
 ## Features
