@@ -91,7 +91,7 @@ As the application is aimed at all ages, logical placement of buttons and unders
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JAVASCRIPT](https://en.wikipedia.org/wiki/JavaScript)
--   [PYTHON](https://en.wikipedia.org/wiki/Python_(programming_language)
+-   [PYTHON](https://en.wikipedia.org/wiki/Python_programming_language)
 
 
 
