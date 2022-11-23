@@ -156,6 +156,7 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 -   The app crash if users insert a wrong postcode when they list an item. Error: [list out of range]. The bug was fixed adding if statements. (The bug was fixed)
 -   The app crash if you dont open a ticket request on linode asking to open mail port. The error is 502 Bad Gataway, specifically gunicorn fail with timeour worker. I had to comment out send_verification_email and send_notification functions. (The bug was fixed)
 - The same error will be raised from the admin page backend when you approve a vendor. (The bug was fixed)
+- In cover(s).html and vendor_details.html dynamic url inside style:"background: url {% ... %}" throw an error inside vd code terminal this error does not afflect the code at all although (the bug is not fixed yet)
 
 
 
