@@ -33,11 +33,11 @@ class Vendor(models.Model):
                 if self.is_approved == True:
                     # Send notification email
                     mail_subject = "Congratulations! You have been approved."
-                    # send_notification(mail_subject, mail_template, context)
+                    send_notification(mail_subject, mail_template, context)
                 else:
                     # Send notification email
                     mail_subject = "We're sorry! You are not eligible for publishing on our web application."
-                    # send_notification(mail_subject, mail_template, context)
+                    send_notification(mail_subject, mail_template, context)
         return super(Vendor, self).save(*args, **kwargs)
 
 

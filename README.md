@@ -82,6 +82,10 @@ As the application is aimed at all ages, logical placement of buttons and unders
     -   Wireframe - [Tablet](#)
     -   Wireframe - [Smartphone](#)
 
+### Flowchart
+
+   -   Flowchart - [view](#) 
+
 
 ## Features
 
@@ -130,10 +134,16 @@ As the application is aimed at all ages, logical placement of buttons and unders
 
 The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-1.  HTML login in validator [view](#)
-2.  HTML register user validator [view](#)
-3.  HTML register_vendor validator [view](#)
-4.  HTML home validator [view](#)
+1.  HTML login [view](towpath_webapp_main/static/validators/html_login_page.png)
+2.  HTML signin vendor [view](towpath_webapp_main/static/validators/html_signin_vendor.png)
+3.  HTML signup customer [view](towpath_webapp_main/static/validators/html_signup_page.png)
+4.  HTML marketplace [view](towpath_webapp_main/static/validators/html_marketplace_page.png)
+5.  HTML marketplace vendor page [view](towpath_webapp_main/static/validators/html_marketplace_vendorpage.png)
+6.  HTML dashboard customer [view](towpath_webapp_main/static/validators/html_customer_dashboard.png)
+7.  HTML cart [view](towpath_webapp_main/static/validators/html_cart_page.png)
+8.  HTML checkout [view](towpath_webapp_main/static/validators/html_checkout_page.png)
+8.  CSS customn.css [view](towpath_webapp_main/static/validators/css_validator.png)
+8.  JS custom.js [view](towpath_webapp_main/static/validators/jHint_validator.png)
 
 
 
@@ -144,13 +154,16 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 2.   The website was viewed on a variety of devices such as:
     [ipad_air_orizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air_horizontial.png) [aipad_air](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_air.png) [aipad_mini_horizontal](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini_horizontial.png) [ipad_mini](towpath_webapp_main/static/towpathwebapp_screenshots_devices/ipad_mini.png) [iphone_12](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_12_pro.png) [iphone_se](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_se.png) [iphone_xr](towpath_webapp_main/static/towpathwebapp_screenshots_devices/iphone_xr.png) [surface_pro](towpath_webapp_main/static/towpathwebapp_screenshots_devices/surface_pro_7_horizontial.png)
 
-3.   A large amount of testing was done to ensure that all pages were linking correctly [view](#).
+3.   A large amount of testing was done to ensure that all pages were linking correctly [view](towpath_webapp_main/static/validators/manual_testing.png).
 
 4.   Friends and family members were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
-### Known Bugs/Errors
+### Known Bugs/Errors.
 
--   The app crash if users insert a wrong postcode when they list an item. Error: [list out of range]. The bug was fixed adding if statements.
+-   The app crash if users insert a wrong postcode when they list an item. Error: [list out of range]. The bug was fixed adding if statements. (The bug was fixed)
+-   The app crash if you dont open a ticket request on linode asking to open mail port. The error is 502 Bad Gataway, specifically gunicorn fail with timeour worker. I had to comment out send_verification_email and send_notification functions. (The bug was fixed)
+- The same error will be raised from the admin page backend when you approve a vendor. (The bug was fixed)
+
 
 
 ### Programs and online resources
@@ -160,7 +173,7 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 4. Colour scheme, used to create a colour palette.
 5. Lighthouse, used to test performance, accessibility, best practices, and SEO within the Chrome browser.
 6. Am I Responsive, used for generating the main README image.
-9. Lucid which was used to create the database models diagram. [view](#)
+9. Lucid which was used to create the database models diagram.
 
 ## Deployment
 
@@ -302,7 +315,7 @@ virtualenv env
 
 1. Install Gunicorn on our server
  - sudo apt install gunicorn
- - Tell gunicorn to bind to our Django application and start running gunicorn --bind 0.0.0.0:8000 foodOnline_main.wsgi
+ - Tell gunicorn to bind to our Django application and start running gunicorn --bind 0.0.0.0:8000 your_main_folder_name.wsgi
  - Test the link and make sure the site is working
  - exit
  - Go to this location and paste below code: sudo nano /etc/systemd/system/gunicorn.socket:
@@ -333,18 +346,18 @@ virtualenv env
 1. Location: sudo nano /etc/nginx/sites-available/anyname
   server {
     listen 80;
-    server_name djangofoodonline.com www.djangofoodonline.com;
+    server_name yoursite.com www.yoursite.com;
 
     location ~ ^/.well-known {
-        root /home/foodonline/foodonline-dir;
+        root /home/username/username-dir;
         allow all;
     }
     location = /favicon.ico { access_log off; log_not_found off; }
     location /static/ {
-        root /home/foodonline/foodonline-dir;
+        root /home/username/username-dir;
     }
     location /media/ {
-        root /home/foodonline/foodonline-dir;
+        root /home/username/username-dir;
     }
     location / {
         include proxy_params;
@@ -358,7 +371,7 @@ virtualenv env
 1. Open port 80 and close 8000
  - sudo ufw allow 80
  - sudo ufw allow 'Nginx Full'
- - sudo ufw allow 586
+ - sudo ufw allow 587
  - sudo ufw deny 8000
 
 Go to sites-enabled directory and delete the default site
@@ -371,7 +384,11 @@ sudo rm default
  - Verify certbot installation by running which certbot
  - sudo certbot --nginx -d yourwebsitename.com
 
+## Next Features to be Implemented
 
+ - Dynamic Business hours module with AJAX
+ - Dynamic Tax Module
+ - Custom middleware, total revenue per vendor, current month's revenue
 
 ## Credits
 
