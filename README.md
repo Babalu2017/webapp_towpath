@@ -156,7 +156,7 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 -   The app crash if users insert a wrong postcode when they list an item. Error: [list out of range]. The bug was fixed adding if statements. (The bug was fixed)
 -   The app crash if you dont open a ticket request on linode asking to open mail port. The error is 502 Bad Gataway, specifically gunicorn fail with timeour worker. I had to comment out send_verification_email and send_notification functions. (The bug was fixed)
 - The same error will be raised from the admin page backend when you approve a vendor. (The bug was fixed)
-- In cover(s).html and vendor_details.html dynamic url inside style:"background: url {% ... %}" throw an error inside vd code terminal this error does not afflect the code at all although (the bug is not fixed yet)
+- In cover(s).html and vendor_details.html dynamic url inside style:"background: url {% ... %}" throw an error inside vs code terminal this error does not afflect the code at all although (the bug is not fixed yet)
 
 
 
@@ -164,10 +164,10 @@ The W3C Markup Validator, W3C CSS Validator and JSHINT Validator Services were u
 1. GitHub, was used to store committed files
 2. Git and Gitpod, used in conjunction through Gitpod to commit and push files to GitHub
 3. Photoshop 2022, used for editing of screenshots and saving into WebP format.
-4. Colour scheme, used to create a colour palette.
-5. Lighthouse, used to test performance, accessibility, best practices, and SEO within the Chrome browser.
-6. Am I Responsive, used for generating the main README image.
-9. Lucid which was used to create the database models diagram.
+4. Am I Responsive, used for generating the main README image.
+5. Lucid which was used to create the database models diagram.
+6. Web3 Validator
+7. hintJS
 
 ## Deployment
 
