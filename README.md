@@ -75,16 +75,9 @@ As the application is aimed at all ages, logical placement of buttons and unders
 - As the site owner, I want visitors to be able to easily add their or buy someoneelse items.
 - As a site owner, I want to encourage give a second lfe to items unwanted.
 
-
-*   ### Wireframes
-
-    -   Wireframe - [Laptop](#)
-    -   Wireframe - [Tablet](#)
-    -   Wireframe - [Smartphone](#)
-
 ### Flowchart
 
-   -   Flowchart - [view](#) 
+   -   Flowchart - [view](towpath_webapp_main/static/readme_images/flowchart_towpath_webapp.HEIC) 
 
 
 ## Features
